@@ -1,0 +1,24 @@
+seed: 0
+task:
+  length: 5          # training list length
+  max_len: 8         # inputs/outputs padded to this so 6-8 can be held out
+  eval_size: 2000
+model:
+  n_slots: 3         # chromosomal pairs (haploid baseline uses 2x slots, ploidy 1)
+  ploidy: 2
+  sub_hidden: 32
+  sub_out: 16
+  head_hidden: 128
+evolution:
+  founders: 10
+  pop_size: 50
+  children_per_round: 20
+  rounds: 30
+  tournament_k: 3
+  mutation_std: 0.01
+  lifespan: 5        # rounds a model stays in the pool before the hall of fame
+train:
+  child_steps: 300
+  elder_steps: 50    # extra training per round for models still in the pool
+  batch_size: 128
+  lr: 0.003
